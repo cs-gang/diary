@@ -1,2 +1,8 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<svelte:head>
+    <title>Diary</title>
+</svelte:head>
+
+<center>
+    <h1>Diary!</h1>
+    <p>How was your day?</p>
+</center>
