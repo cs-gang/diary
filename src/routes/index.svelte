@@ -1,3 +1,6 @@
+<script>
+    import { supabase } from '../supabase';
+</script>
 <title>Diary</title>
 
 <center class="flex h-screen justify-between">
