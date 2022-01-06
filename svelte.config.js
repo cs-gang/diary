@@ -1,5 +1,6 @@
 import adapter from '@sveltejs/adapter-auto';
 import preprocess from 'svelte-preprocess';
+import cloudflare from '@sveltejs/adapter-cloudflare';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -15,4 +16,11 @@ const config = {
 	}
 };
 
-export default config;
+export default {
+	kit: {
+		target: '#svelte',
+		adapter: cloudflare({
+			// any esbuild options
+		})
+	}
+};
