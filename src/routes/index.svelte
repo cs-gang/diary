@@ -1,14 +1,22 @@
 <script lang="ts">
 	// TODO: check if a user is already signed in and send them to dashboard
 	import { supabase } from '$lib/supabase';
+	
+	function getRedirectUrl(): string {
+		if (import.meta.env.VITE_PRODUCTION === "false") {
+			return "http://localhost:3000/dashboard"
+		} else {
+			return "https://diary.anand2312.tech/dashboard"
+		}
+	}
 
-	async function signIn() {
+	async function signIn(): Promise<null> {
 		const { error } = await supabase.auth.signIn(
 			{
 				provider: 'discord'
 			},
 			{
-				redirectTo: 'http://localhost:3000/dashboard',
+				redirectTo: getRedirectUrl(),
 				scopes: 'identify'
 			}
 		);
