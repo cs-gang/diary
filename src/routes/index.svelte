@@ -1,8 +1,9 @@
 <script lang="ts">
-	import { supabase } from '$lib/supabase'; // TODO: fix import errors
+	// TODO: check if a user is already signed in and send them to dashboard
+	import { supabase } from '$lib/supabase';
 
 	async function signIn() {
-		const { user, session, error } = await supabase.auth.signIn(
+		const { error } = await supabase.auth.signIn(
 			{
 				provider: 'discord'
 			},
@@ -11,7 +12,6 @@
 				scopes: 'identify'
 			}
 		);
-        console.log(session.provider_token, "index");
 
 		if (error) {
 			console.log(error.message, error.status);
@@ -21,18 +21,21 @@
 	}
 </script>
 
-<title>Diary</title>
 
-<center class="flex h-screen justify-between" on:click={signIn}>
-	<div class="m-auto">
-		<h1 class="font-display text-6xl italic hover:not-italic text-red-300 hover:text-gray-50">
-			Diary
-		</h1>
-		<br />
-		<p class="font-body text-xl text-amber-200 hover:text-gray-50">How was your day?</p>
-		<br /><br />
-		<small
-			><p class="font-body text-xsm text-gray-100 animate-pulse">Click anywhere to login</p></small
-		>
-	</div>
-</center>
+<main>
+	<title>Diary</title>
+
+	<center class="flex h-screen justify-between" on:click={signIn}>
+		<div class="m-auto">
+			<h1 class="font-display text-6xl italic hover:not-italic text-red-300 hover:text-amber-200">
+				Diary
+			</h1>
+			<br />
+			<p class="font-body text-xl text-amber-200">How was your day?</p>
+			<br /><br />
+			<small
+				><p class="font-body text-xsm text-gray-100 animate-pulse">Click anywhere to login</p></small
+			>
+		</div>
+	</center>
+</main>

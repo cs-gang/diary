@@ -1,6 +1,5 @@
 <script>
 // @ts-nocheck
-
 	import '../tailwind.css';
 </script>
 
@@ -13,6 +12,6 @@
 	/>
 </svelte:head>
 
-<div class="h-screen bg-primary-800">
+<div class="h-screen bg-primary-600">
 	<slot />
 </div>

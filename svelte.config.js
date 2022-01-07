@@ -1,6 +1,8 @@
 import adapter from '@sveltejs/adapter-auto';
 import preprocess from 'svelte-preprocess';
+import sveltePreprocess from 'svelte-preprocess';
 import cloudflare from '@sveltejs/adapter-cloudflare';
+//import { sveltePreprocess } from 'svelte-preprocess/dist/autoProcess';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -17,6 +19,7 @@ const config = {
 };
 
 export default {
+	preprocess: sveltePreprocess(),
 	kit: {
 		target: '#svelte',
 		adapter: cloudflare({
