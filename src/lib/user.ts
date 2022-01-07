@@ -10,7 +10,6 @@ interface DiscordUser {
 export async function getDiscordUserData(token: string): Promise<DiscordUser> {
 	// Get the user's data from the Discord API
 	// by using the provider access token.
-	console.log('token', token);
 	const url = 'https://discord.com/api/oauth2/@me';
 	const headers = {
 		Authorization: `Bearer ${token}`
@@ -20,7 +19,6 @@ export async function getDiscordUserData(token: string): Promise<DiscordUser> {
 		headers: headers
 	});
 	const json = await res.json();
-	console.log(json);
 	const userJson = json.user;
 	return {
 		id: userJson.id,
