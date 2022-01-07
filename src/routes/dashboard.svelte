@@ -8,12 +8,17 @@
     currentUser.subscribe(value => {
         user = value;
     })
+
+    function foo(): string {
+        console.log(user.avatar_url());
+        return user.avatar_url();
+    }
 </script>
 
 <main>
     {#if !user.discordUser}
         <p class="font-body text-gray-50">loading</p>
     {:else}
-        <Navbar username={user.discordUser.username} avatarUrl={user.avatar_url()} />
+        <Navbar username={user.discordUser.username} avatarUrl={foo()} />
     {/if}
 </main>
