@@ -1,12 +1,12 @@
 <script lang="ts">
 	// TODO: check if a user is already signed in and send them to dashboard
 	import { supabase } from '$lib/supabase';
-	
+
 	function getRedirectUrl(): string {
-		if (import.meta.env.VITE_PRODUCTION === "false") {
-			return "http://localhost:3000/dashboard"
+		if (import.meta.env.VITE_PRODUCTION === 'false') {
+			return 'http://localhost:3000/dashboard';
 		} else {
-			return "https://diary.anand2312.tech/dashboard"
+			return 'https://diary.anand2312.tech/dashboard';
 		}
 	}
 
@@ -29,7 +29,6 @@
 	}
 </script>
 
-
 <main>
 	<title>Diary</title>
 
@@ -42,7 +41,9 @@
 			<p class="font-body text-xl text-amber-200">How was your day?</p>
 			<br /><br />
 			<small
-				><p class="font-body text-xsm text-gray-100 animate-pulse">Click anywhere to login</p></small
+				><p class="font-body text-xsm text-gray-100 animate-pulse">
+					Click anywhere to login
+				</p></small
 			>
 		</div>
 	</center>

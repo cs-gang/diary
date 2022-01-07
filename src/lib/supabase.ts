@@ -7,13 +7,13 @@ const key = import.meta.env.VITE_API_KEY as string;
 
 export const supabase = createClient(url, key);
 
-export const currentUser = readable(DiaryUser.initial(), set => {
-    supabase.auth.onAuthStateChange(async (event, session) => {
-        if (event === "SIGNED_OUT") {
-            set(null)
-        } else {
-            const discordUser = await getDiscordUserData(session.provider_token);
-            set(new DiaryUser(session.user, discordUser));
-        }
-    })
-})
+export const currentUser = readable(DiaryUser.initial(), (set) => {
+	supabase.auth.onAuthStateChange(async (event, session) => {
+		if (event === 'SIGNED_OUT') {
+			set(null);
+		} else {
+			const discordUser = await getDiscordUserData(session.provider_token);
+			set(new DiaryUser(session.user, discordUser));
+		}
+	});
+});
