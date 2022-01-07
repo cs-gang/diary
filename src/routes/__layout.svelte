@@ -1,4 +1,6 @@
 <script>
+// @ts-nocheck
+
 	import '../tailwind.css';
 </script>
 

@@ -10,6 +10,7 @@ interface DiscordUser {
 export async function getDiscordUserData(token: string): Promise<DiscordUser> {
 	// Get the user's data from the Discord API
 	// by using the provider access token.
+    console.log("token", token);
 	const url = 'https://discord.com/api/oauth2/@me';
 	const headers = {
 		Authorization: `Bearer ${token}`
@@ -18,8 +19,9 @@ export async function getDiscordUserData(token: string): Promise<DiscordUser> {
 		method: 'GET',
 		headers: headers
 	});
-
-	const userJson = (await res.json()).user;
+    const json = await res.json();
+    console.log(json);
+	const userJson = json.user;
 	return {
 		id: userJson.id,
 		username: userJson.username,
@@ -27,6 +29,7 @@ export async function getDiscordUserData(token: string): Promise<DiscordUser> {
 		discriminator: userJson.discriminator
 	};
 }
+
 
 export class DiaryUser {
 	// Combines the supabase auth and discord data
@@ -41,5 +44,9 @@ export class DiaryUser {
 
 	avatar_url(): string {
 		return `https://cdn.discordapp.com/avatars/${this.discordUser.id}/${this.discordUser}/this.discordUser.avatar}.png`;
+	}
+
+	static initial(): DiaryUser {
+		return new DiaryUser(null, null);
 	}
 }

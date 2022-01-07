@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { supabase } from '$lib/supabase.ts'; // TODO: fix import errors
+	import { supabase } from '$lib/supabase'; // TODO: fix import errors
 
 	async function signIn() {
 		const { user, session, error } = await supabase.auth.signIn(
@@ -7,10 +7,11 @@
 				provider: 'discord'
 			},
 			{
-				redirectTo: 'http://localhost:3000/callback.json',
+				redirectTo: 'http://localhost:3000/dashboard',
 				scopes: 'identify'
 			}
 		);
+        console.log(session.provider_token, "index");
 
 		if (error) {
 			console.log(error.message, error.status);
