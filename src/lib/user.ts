@@ -43,7 +43,7 @@ export class DiaryUser {
 	}
 
 	avatar_url(): string {
-		return `https://cdn.discordapp.com/avatars/${this.discordUser.id}/${this.discordUser}/this.discordUser.avatar}.png`;
+		return `https://cdn.discordapp.com/avatars/${this.discordUser.id}/${this.discordUser.avatar}.png?size=64`;
 	}
 
 	static initial(): DiaryUser {
