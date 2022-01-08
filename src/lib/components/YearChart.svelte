@@ -1,7 +1,9 @@
 <script lang="ts">
 	import { days as totalDays } from '$lib/dateutils';
 
+	export let header: string = "";
 	export let data: Set<string>;
+	export let urlFormat: string | null = null;
 
 	let today = new Date(Date.now());
 	let year = today.getFullYear();

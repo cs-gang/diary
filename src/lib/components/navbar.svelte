@@ -17,11 +17,11 @@
 			<ul class="text-base font-display font-light text-amber-300 p-4 flex justify-between">
 				<li>
 					<!--- TODO: make entries --->
-					<a href="/#" class="hover:text-gray-50 p-4 block">Entries</a>
+					<a href="/dashboard#" class="hover:text-gray-50 p-4 block">Entries</a>
 				</li>
 				<li>
 					<!--- TODO: make habits -->
-					<a href="/#" class="hover:text-gray-50 p-4 block">Habits</a>
+					<a href="/dashboard#" class="hover:text-gray-50 p-4 block">Habits</a>
 				</li>
 			</ul>
 		</div>
@@ -45,7 +45,7 @@
 				</button>
 			</a>
 			<!---TODO: make settings-->
-			<a href="/#">
+			<a href="/dashboard#">
 				<p class="hidden font-display font-normal text-amber-500 hover:text-secondary-400">
 					{username}
 				</p>
