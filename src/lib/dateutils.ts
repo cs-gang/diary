@@ -27,12 +27,11 @@ export function leapYear(year: number): boolean {
 
 export function* days(year: number): Generator<Date, void, null> {
   // given an year, yields the days in that year
-  for (let month = 1; month <= 12; month++) {
+  for (let month = 0; month <= 11; ++month) { // javascript months are 0-indexed, because of course they are
     const days = daysInMonth(month, year);
-    for (let day = 1; day <= days; day++) {
+    for (let day = 1; day <= days; ++day) {
       yield new Date(year, month, day);
     }
   }
 }
 
-console.log([...days(2022)].length);
