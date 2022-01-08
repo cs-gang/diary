@@ -11,7 +11,6 @@
   });
 
   function foo(): string {
-    console.log(user.avatar_url());
     return user.avatar_url();
   }
 </script>

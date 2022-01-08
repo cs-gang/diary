@@ -8,8 +8,6 @@
 
   let today = new Date(Date.now());
   let year = today.getFullYear();
-  console.log(year);
-  console.log(data);
 </script>
 
 <div class="flex-row w-[80%] items-center p-6 m-5 bg-primary-400 rounded-l">
