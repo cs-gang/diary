@@ -1,4 +1,4 @@
-import type { User } from '@supabase/supabase-js';
+import type { User, SupabaseClient } from '@supabase/supabase-js';
 
 interface DiscordUser {
   id: string;
@@ -45,5 +45,25 @@ export class DiaryUser {
 
   static initial(): DiaryUser {
     return new DiaryUser(null, null);
+  }
+
+  async getDiaryEntryDays(client: SupabaseClient): Promise<Set<string> | null> {
+    // gets the days that the user has made an entry in their diary
+    // returns set of date strings.
+    const { data, error } = await client
+      .rpc<string>("get_diary_entry_dates");
+    
+    if (error) {
+      console.log(error);
+      throw error;
+    }
+
+    const datestrings: Set<string> = new Set();
+
+    for (const i of data) {
+      datestrings.add((new Date(i)).toDateString())
+    }
+  
+    return datestrings;
   }
 }
