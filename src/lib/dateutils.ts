@@ -26,11 +26,8 @@ export function leapYear(year: number): boolean {
 }
 
 export function* days(year: number): Generator<Date, void, null> {
-	// given an year, yields the days in that year
-	for (const month of Array(13).keys()) {
-		const days = daysInMonth(month, year);
-		for (const day of Array(days).keys()) {
-			yield new Date(year, month, day);
-		}
-	}
+  const month = 0;
+  for (let day = 1; day <= (leapYear(year) ? 366 : 365); ++day) {
+    yield new Date(year, month, day);
+  }
 }
