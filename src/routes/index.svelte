@@ -34,14 +34,14 @@
 
   <center class="flex h-screen justify-between" on:click={signIn}>
     <div class="m-auto">
-      <h1 class="font-display text-6xl italic hover:not-italic text-red-300 hover:text-amber-200">
+      <h1 class="font-display text-7xl md:text-8xl lg:text-9xl bold hover:not-italic text-red-300">
         Diary
       </h1>
       <br />
-      <p class="font-body text-xl text-amber-200">How was your day?</p>
+      <p class="font-body text-2xl md:text-3xl text-amber-200 italic">How was your day?</p>
       <br /><br />
       <small
-        ><p class="font-body text-xsm text-gray-100 animate-pulse">
+        ><p class="font-body text-lg text-gray-100 animate-pulse mt-8 md:mt-16 lg:mt-20">
           Click anywhere to login
         </p></small
       >
