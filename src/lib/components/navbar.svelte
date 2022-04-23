@@ -9,11 +9,28 @@
   <nav class="bg-primary-800 flex justify-between px-4 py-4 md:py-0 w-full text-2xl font-display">
     <a
       href="/"
-      class="text-4xl m-2 px-4 py-4 font-bold font-display text-red-300 hover:text-amber-200"
+      class="text-2xl md:text-3xl p-2 md:py-4 md:m-4 font-bold font-display text-red-300 hover:text-amber-200"
     >
       Diary
     </a>
-    <div class="flex items-center w-auto">
+
+    <button tabindex="0" class="md:hidden text-gray-50 mr-5">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-5 w-5"
+        fill="none"
+        viewBox="0 0 20 20"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="3"
+          d="M4 6h16M4 12h8m-8 6h16"
+        />
+      </svg>
+    </button>
+    <div class="items-center w-auto hidden md:flex">
       <ul class="text-base font-display font-light text-amber-300 p-4 flex justify-between">
         <li>
           <!--- TODO: make entries --->
@@ -25,7 +42,7 @@
         </li>
       </ul>
     </div>
-    <div class="flex items-center w-auto">
+    <div class="items-center w-auto hidden md:flex">
       <a href="/" class="p-4">
         <button on:click={supabase.auth.signOut}>
           <svg
