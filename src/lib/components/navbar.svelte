@@ -1,5 +1,7 @@
 <script lang="ts">
   import { supabase } from '$lib/supabase';
+  import { fly, fade } from 'svelte/transition';
+  import { backOut } from 'svelte/easing';
 
   export let username: string;
   export let avatarUrl: string;
@@ -13,7 +15,11 @@
 
 <main>
   {#if burgerDrawerVisible}
-    <div class="h-screen w-screen z-0 bg-primary-900 absolute md:hidden">
+    <div
+      class="h-screen w-screen z-0 bg-primary-900 absolute md:hidden"
+      in:fly={{ x: 200, duration: 1000, easing: backOut }}
+      out:fade
+    >
       <div class="w-auto flex flex-col items-center">
         <!---TODO: make settings-->
         <div class="flex flex-row justify-between ml-24">
