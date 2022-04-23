@@ -18,12 +18,14 @@
 
 <main>
   <title>Dashboard</title>
+
   {#if !user.discordUser}
     <WaitingForUserData />
   {:else}
     <Navbar username={user.discordUser.username} avatarUrl={foo()} />
+    <!--
 	{#await user.getDiaryEntryDays(supabase) then data}
 		<center><YearChart data={data} header="Diary Entries" /></center>
-	{/await}
+	{/await}-->
   {/if}
 </main>

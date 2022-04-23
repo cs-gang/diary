@@ -6,6 +6,46 @@
 </script>
 
 <main>
+  <div class="h-screen w-screen z-0 bg-primary-900 absolute">
+    <div class="w-auto flex flex-col items-center">
+      <!---TODO: make settings-->
+      <a href="/dashboard#">
+        <p class="hidden font-display font-normal text-amber-500 hover:text-secondary-400">
+          {username}
+        </p>
+        <!-- svelte-ignore a11y-img-redundant-alt -->
+        <img
+          class="inline object-cover w-16 h-16 mr-4 rounded-full my-16 ml-4"
+          src={avatarUrl}
+          alt="User's profile picture"
+        />
+      </a>
+      <div class="text-2xl font-display font-light text-amber-300 text-center">
+        <a href="/dashboard#" class="hover:text-gray-50 p-4 block">Entries</a>
+        <a href="/dashboard#" class="hover:text-gray-50 p-4 block">StickyBoard</a>
+        <a href="/dashboard#" class="hover:text-gray-50 p-4 block">Habits</a>
+      </div>
+      <a href="/" class="p-4 mt-12">
+        <button on:click={supabase.auth.signOut}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-10 w-10"
+            fill="none"
+            viewBox="0 0 22 22"
+            stroke="white"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+            />
+          </svg>
+        </button>
+      </a>
+    </div>
+  </div>
+
   <nav class="bg-primary-800 flex justify-between px-4 py-4 md:py-0 w-full text-2xl font-display">
     <a
       href="/"
@@ -30,6 +70,7 @@
         />
       </svg>
     </button>
+
     <div class="items-center w-auto hidden md:flex">
       <ul class="text-base font-display font-light text-amber-300 p-4 flex justify-between">
         <li>
