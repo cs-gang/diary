@@ -1,12 +1,13 @@
 <script lang="ts">
   // TODO: check if a user is already signed in and send them to dashboard
   import { supabase } from '$lib/supabase';
+  import { page } from "$app/stores";
 
   function getRedirectUrl(): string {
     if (import.meta.env.VITE_PRODUCTION === 'false') {
       return 'http://localhost:3000/dashboard';
     } else {
-      return 'https://diary.anand2312.tech/dashboard';
+      return `${$page.url.origin}/dashboard`;
     }
   }
 
